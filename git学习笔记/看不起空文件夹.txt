@@ -1,1 +1,15 @@
-aa
+select *
+  from osm_firm office1
+  left join osm_equipment eqm on eqm.firm_id = office1.id
+  inner join PUB_COMPANY_ORG ORG on ORG.POSITION_ORG_ID = eqm.bank_id AND ORG.ORG_GRADE = 1 AND ORG.STATE = 1 AND ORG.RECORD_TYPE = 1
+  left join  osm_fault_message ofm on eqm.teller_system_no = ofm.teller_system_no
+  where 1=1 and ofm.message_recive between to_date('2016-09-12 00:00:00','yyyy-mm-dd hh24:mi:ss') and to_date('2016-09-12 23:59:59','yyyy-mm-dd hh24:mi:ss')
+	 AND ( ORG.ORG_CODE LIKE '0%' )
+
+
+	  select *
+  from osm_firm office2
+  left join osm_equipment eqm on eqm.firm_id = office2.id  
+  left join osm_fault_message ofm on eqm.teller_system_no = ofm.teller_system_no 
+  left join osm_work_order owo on owo.iboss_message_id = ofm.iboss_message_id
+  where 1=1 and owo.create_date between to_date('2016-09-12 00:00:00','yyyy-mm-dd hh24:mi:ss') and to_date('2016-09-12 23:59:59','yyyy-mm-dd hh24:mi:ss')
