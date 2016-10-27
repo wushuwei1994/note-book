@@ -41,13 +41,19 @@
 ![图片](http://localhost:8080/yhcloud-web-mvms/css/images/top_09.png)
 
 ##代码框
-用``表示  
-`say(hello){}`
+用```表示  
+```
+say(hello){
+	asdf asdf
+}
+```
 
 开头用两个tab表示
 
 	public static void main(String[] args){
 			d
 	}
+##其他
+
 
 
