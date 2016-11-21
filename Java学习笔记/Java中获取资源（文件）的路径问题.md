@@ -3,7 +3,7 @@ Java中获取资源可以分为两种方式，基于文件系统的和基于clas
 * 基于文件系统
 	1. 相对路径。如 `File f = new File("text.txt")`，文件text.txt就是相对路径。一般相对路径的是`System.getProperties("user.dir")`，即执行Java程序的所在路径。比如你用window中的cmd通过调用java命令来执行java程序，那么cmd中的当前路径就是Java程序中的相对路径；在eclipse执行Java程序时，项目路径即为相对路径。注意，根路径为当前盘符路径。如：`"/text.txt" = "D:/text.txt"`
 
-	2. 绝对路径。如`new File("C:/text.txt)`
+	2. 绝对路径。如`new File("C:/text.txt")`
 	
 * 基于classpath  
 
