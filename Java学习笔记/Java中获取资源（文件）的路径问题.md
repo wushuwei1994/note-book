@@ -36,11 +36,11 @@ Java中获取资源可以分为两种方式，基于文件系统的和基于clas
 
 	```
 	输出结果为：  
-	基于文件系统的相对路径：D:\eclipseLuna64\myworkspace\Learning
-	基于当前Class的classpath路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/my/learning/
-	基于当前Class的classpath的跟路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/
-	基于当前ClassLoader的classpath路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/
-	基于Thread.currentThread().getContextClassLoader()的classpath路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/
+	基于文件系统的相对路径：D:\eclipseLuna64\myworkspace\Learning 
+	基于当前Class的classpath路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/my/learning/ 
+	基于当前Class的classpath的跟路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/ 
+	基于当前ClassLoader的classpath路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/ 
+	基于Thread.currentThread().getContextClassLoader()的classpath路径：file:/D:/eclipseLuna64/myworkspace/Learning/bin/ 
 
 	**特别说明：Tomcat下的web项目根路径为：WEB-INF\classes**
 
