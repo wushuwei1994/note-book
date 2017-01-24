@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>在html里嵌入javascript</title>
+  <meta charset="utf-8">
+</head>
+<body>
+<ul>
+	<li>推荐使用放置在由&lt;script&gt;标签的src属性指定的外部文件中，这种方式会忽略标签之间的任何内容</li>
+	<li>同源安全策略会阻止一个域的文档中的script（指定是文档里面的script的代码）和另一个域的内容进行交互。当在页面中用src属性包含一个脚本时，就给了脚本作者完全控制Web页面的权限</li>
+	<li>当Web浏览器遇到&lt;script&gt;元素，并且这个元素包含其值不被浏览器识别的type属性时，它会解析这个元素但不会尝试显示或执行它的内容。这意味着可以使用&lt;script&gt;元素（前提是没有指定src属性）来嵌入任意的文本数据到文档里，只要用type属性为数据声明一个不可执行的类型。</li>
+</ul>
+
+<script type="text/javascript" src="none.js">
+	console.log('我这段代码没卵用！');
+</script>
+<script type="text/javascript">
+	console.log('我这段代码有卵用！');
+</script>
+</body>
+</html>
