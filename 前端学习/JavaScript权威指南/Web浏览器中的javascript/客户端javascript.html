@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>客户端javascript</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+  	.reveal * {display: none;}
+  	.reveal *.handle {display: block;}
+  </style>
+  <script type="text/javascript">
+  	//所有的页面逻辑在onload事件之后启动
+  	window.onload = function(){
+  		var elements = document.getElementsByClassName("reveal");
+  		for(var i = 0; i < elements.length; i++){
+  			var elt = elements[i];
+  			var title = elt.getElementsByClassName("handle")[0];
+  			addRevealHandler(title,elt);
+  		}
+  		function addRevealHandler(title,elt){
+  			title.onclick = function(){
+  				if(elt.className == "reveal"){
+	  				elt.className = "revealed"
+	  			}else if(elt.className == "revealed"){
+	  				elt.className = "reveal";
+	  			}
+  			} 			
+  		}
+  	}
+  </script>
+</head>
+<body>
+<div id="timestamp"></div>
+onload事件Demo：
+<div class="reveal">
+<h1 class="handle">Click Here to Reveal Hidden Text</h1>
+<p>This paragraph is hidden. It appears when you click on the title.</p>
+</div>
+
+<ul>
+  <li>Window对象，客户端JavaScript特性的主要接入点，表示Web浏览器的一个窗口或窗体，可用标识符window来引用它</li>
+  <li>location为Window对象的属性，指Location对象，指定当前显示在窗口的URL，并允许脚本往窗口里载入新的URL</li>
+  <li>可通过window.location = 'url'方式直接跳转到新的url地址</li>
+  <li>window定义的方法：alert()//提示窗口, setTimeout(handler,2000)//定时器</li>
+  <li>window对象的属性和方法实际上是全局变量和全局函数，可以不用到window而直接使用</li>
+  <li>document是Window对象中最重要的属性，它引用Document对象，表示显示在窗口中的文档</li>
+  <li>document方法：getElementById();//可以基于元素id属性的值返回单一的文档元素Element对象，Element对象有属性和方法</li>
+  <li>Element对象方法：appendChild();//拼接Node元素<br> 
+      对象属性：firstChild,style,className</li>
+  <li>Window、Document和Element对象上一个重要的属性集合是事件处理程序相关的属性。可以在脚本中为之绑定一个函数，这个函数会在某个事件发生时以异步的方式调用。事件处理程序的属性名是以单词"on开始"</li>
+  <li>事件相关属性：onclick,onload</li>
+  <li>Window对象的onload,当显示在窗口中的文档内容稳定并可以操作时(一般整个文档加载完成时，也包括文档最后script标签内容)会触发它。JavaScript代码通常封装在onload事件处理程序里</li>
+  <li>XMLHttpRequest对象，可以对HTTP请求 编程来启用网络，通常叫做Ajax</li>
+</ul>
+
+<script type="text/javascript">
+  console.log(window);
+  console.log(window.location);
+  //window.location = 'http://www.baidu.com';
+  //location = '2';
+  //window.alert('say hello');
+  window.setTimeout(function (){console.log(1)},10000);
+  var timestamp = document.getElementById("timestamp");
+  console.log(timestamp);
+  if(timestamp.firstChild == null){
+  	timestamp.appendChild(document.createTextNode(new Date().toString()));	
+  }
+  timestamp.style.backgroundColor = "yellow";
+  timestamp.className = 'omg';
+  timestamp.onclick = function(){ this.innerHTML = new Date().toString(); }
+</script>
+</body>
+</html>
