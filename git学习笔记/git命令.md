@@ -1,6 +1,14 @@
 ### git init 初始化git仓库
 ### git status 查看git仓库状态
-### git add 添加到暂存区（缓存区域，临时保存改动）
+    参数：
+    -s 或 --short 紧凑输出：
+    ?? 表示未跟踪；A表示已加到暂存；M表示已修改；MM表示已加到暂存且被修改即暂存区并不是最新暂存内容
+### git add 添加内容到下一次提交中即暂存区（缓存区域，临时保存改动）：未跟踪加到暂存区；已修改加到暂存区；旧暂存加到新暂存区
+    参数：
+    -A .来一次添加所有改变的文件
+    -A表示添加所有内容， 
+    . 表示添加新文件和编辑过的文件不包括删除的文件; 
+    -u 表示添加编辑或者删除的文件，不包括新添加的文件
 ### git rm -cached 移除缓存（已跟踪变为未跟踪）
 ### git commit 提交 
 	参数：
@@ -27,6 +35,24 @@
 ### git remote -v 查看当前项目有哪些远程仓库
 ### git config -l 查看你的Git全局设置信息 
 ### git config --global user.name "wushuwei" 配置全局变量
+### git diff 工作目录中当前文件和暂存区域快照之间的差异，即只显示未暂存的改动
+    参数：
+    -cached或staged 查看已暂存的将要添加到下次提交里的内容，即已缓存的改动
 
 ## git状态
-- untracked 未跟踪的
+- Untracked 未跟踪的
+- Tracked 已跟踪的
+  - Staged 已暂存
+  - Unmodified 未修改
+  - Modified 已修改 
+  
+ 一般状态变化如下：
+ 
+ Untracked -(Add the file) > Staged
+ 
+ Unmodified -(Edit the file) > Modified
+ 
+ Modified -(Stage the file) > Staged
+ 
+ Staged -(Commit) > Unmodified
+ 

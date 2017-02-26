@@ -10,3 +10,7 @@
 2. 添加远程仓库（本地仓库与远程仓库关联） 
     git remote add origin git@github.com:wushuwei1994/hello-world.git  //origin 远程仓库名字
 ## 向远程仓库提交代码
+
+## 忽略文件
+在仓库跟目录增加 .gitignore 文件（一般都通过gitbash上的touch .gitignore命令创建文件），然后在文件增加忽略规则(GLOB模式)
+如：*.txt 所有txt格式文件； .idea/ .idea文件夹下所有文件
