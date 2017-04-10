@@ -17,6 +17,47 @@ public class BoxedPrimitiveDemo {
         }
         //↑打印结果为：a与b值相同
 
+        Integer c = 127;
+        Integer d = 127;
+
+        if(c == d) {
+            System.out.println("c == d");
+        } else {
+            System.out.println("c != d");
+        }
+
+        Integer e = 129;
+        Integer f = 129;
+        if(e == f){
+            System.out.println("e == f");
+        }else {
+            System.out.println("e != f");
+        }
+        /*↑打印结果为：
+            c == d
+            e != f
+        */
+
+        String str1 = "abc";
+        String str2 = "abc";
+        String str3 = new String("abc");
+        if(str1 == str2){
+            System.out.println("str1 == str2");
+        }else {
+            System.out.println("str1 != str2");
+        }
+
+        if(str1 == str3){
+            System.out.println("str1 == str3");
+        }else{
+            System.out.println("str1 != str3");
+        }
+
+        /**
+         * 打印结果：
+         * str1 == str2
+         * str1 != str3
+         */
 
         Long sum = 0L;
         for(long len = 0; len < Integer.MAX_VALUE; len++){
