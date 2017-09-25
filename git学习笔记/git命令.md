@@ -41,20 +41,50 @@
     参数：
     -cached或staged 查看已暂存的将要添加到下次提交里的内容，即已缓存的改动
 
+### git reset 版本回退 
+
+> Git必须知道当前版本是哪个版本，在Git中，用`HEAD`表示当前版本，也就是最新的提交`3628164...882e1e0`上一个版本就是`HEAD^`，上上一个版本就是`HEAD^^`，当然往上100个版本写100个`^`比较容易数不过来，所以写成`HEAD~100`。
+
+```
+[bob@iZwz9b0bqrkbhq5r8nvaojZ learngit]$ git reset --hard HEAD^
+HEAD is now at c6b789e add distributed
+```
+
+同时，git也可以回到未来的版本（版本回退之前的版本）。如果命令行窗口没有关闭，可以根据commit id （可以不完整）回到未来的版本。
+
+```
+[bob@iZwz9b0bqrkbhq5r8nvaojZ learngit]$ git reset --hard 10f14
+HEAD is now at 10f14cb append GPL
+```
+
+### git reflog 记录每一次命令
+
+```
+[bob@iZwz9b0bqrkbhq5r8nvaojZ learngit]$ git reflog
+10f14cb HEAD@{0}: reset: moving to 10f14
+c6b789e HEAD@{1}: reset: moving to HEAD^
+10f14cb HEAD@{2}: commit: append GPL
+c6b789e HEAD@{3}: commit: add distributed
+ce6c748 HEAD@{4}: commit (initial): wrote a readme file
+```
+
+
+
+
 ## git状态
 - Untracked 未跟踪的
 - Tracked 已跟踪的
   - Staged 已暂存
   - Unmodified 未修改
   - Modified 已修改 
-  
+
  一般状态变化如下：
- 
+
  Untracked -(Add the file) > Staged
- 
+
  Unmodified -(Edit the file) > Modified
- 
+
  Modified -(Stage the file) > Staged
- 
+
  Staged -(Commit) > Unmodified
- 
+
