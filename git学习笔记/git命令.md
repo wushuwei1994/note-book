@@ -19,6 +19,9 @@
 	-m 提交信息
 	-a 把已跟踪且已修改过的文件加到暂存再提交（跳过加到暂存步骤）
 #### git log 查看所有产生的commit记录
+
+`git log --graph`命令可以看到分支合并图。
+
 #### git branch 查看当前分支情况
 	参数：
 	-d 删除分支
@@ -30,6 +33,19 @@
 #### git checkout -- <file> 丢弃工作区的修改
 
 #### git merge a 合并分支a
+
+> 合并分支时，如果可能，Git会用`Fast forward`模式，但这种模式下，删除分支后，会丢掉分支信息。
+>
+> 如果要强制禁用`Fast forward`模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
+>
+> ex:
+>
+> ```
+> $ git merge --no-ff -m 'merge with no-ff' dev
+> ```
+
+
+
 #### git tag v1.0 新建标签号v1.0（版本号为1.0）
 #### reset 清屏
 #### push 推 把本地代码推到远程仓库
