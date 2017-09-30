@@ -27,8 +27,13 @@
 	-d 删除分支
 	-D 强制删除分支
 #### git branch branchName 创建branchName分支
+
+#### git branch --set-upstream-to=origin/<branch> dev 设置本地分支与远程分支的链接
+
 #### git checkout branchName 切换到branchName（tag）分支
 #### git checkout -b newBranch 创建newBranch分支并切换新分支
+
+#### git checkout -b branch origin/branch 创建远程origin的branch分支到本地
 
 #### git checkout -- <file> 丢弃工作区的修改
 
@@ -46,12 +51,32 @@
 
 
 
-#### git tag v1.0 新建标签号v1.0（版本号为1.0）
+#### git tag <name> 创建标签
+
+```
+//创建标签
+git tag v1.0 //在当前分支下新建标签号v1.0（版本号为1.0）
+git tag //查看所有标签
+git tag <name> <commit id> //在commit id处打上name标签
+git show <tagname> //查看标签信息
+git tag -a v0.1 -m 'version 0.1 released' commitid //-a 指定标签名，-m 指定说明信息
+git tag -s v0.2 -m "signed version 0.2 released" fec145a //-s用私钥签名一个标签
+
+//操作标签
+git tag -d v0.1 //删除标签
+git push origin v1.0 //推送某个标签到远程
+git push origin --tags 一次性推送全部尚未推送到远程的本地标签
+git push origin :refs/tags/<tagname>可以删除一个远程标签
+```
+
+
+
 #### reset 清屏
 #### push 推 把本地代码推到远程仓库
 	git push origin master  //把本地代码推到远程master分支
 #### pull 拉 把远程仓库的最新代码拉下本地来
 	git pull origin master //把远程最新的代码更新到本地，一般我们在push之前都会先pull,这样不容易冲突
+	git pull //只会从远程拉取当前分支的commit
 #### clone 克隆 远程仓库代码“高级”复制到本地
 	git clone git@github.com:wushuwei1994/hello-world.git //ssh路径格式：git@github.com:username/project_name.git
 
@@ -59,6 +84,12 @@
 #### git remote -v 查看当前项目有哪些远程仓库
 #### git config -l 查看你的Git全局设置信息 
 #### git config --global user.name "wushuwei" 配置全局变量
+
+```
+git config --global color.ui true //让git显示颜色
+$ git config --global alias.st status  //配置别名
+```
+
 #### git diff 工作目录中当前文件和暂存区域快照之间的差异，即只显示未暂存的改动
     参数：
     -cached或staged 查看已暂存的将要添加到下次提交里的内容，即已缓存的改动
@@ -93,6 +124,25 @@ c6b789e HEAD@{1}: reset: moving to HEAD^
 c6b789e HEAD@{3}: commit: add distributed
 ce6c748 HEAD@{4}: commit (initial): wrote a readme file
 ```
+
+#### git stash 把当前工作现场“储藏”起来，即工作空间切回最新commit版本中。 
+
+#### git stash list 查看“储藏情况”
+
+#### git stash apply 恢复，但是恢复后，stash内容并不删除，你需要用
+
+#### git stash drop来删除
+
+#### git stash pop 恢复的同时把stash内容也删了
+
+```
+git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>] 
+[<stash>]为储藏版本号，demo: git stash apply stash@{1}
+```
+
+
+
+ps:若在本地仓库有多个分支，在其中一个分支做出修改而未commit，当切换到其他分支时候，其他分支也可以看到这些修改。
 
 
 
