@@ -37,6 +37,10 @@ ZZ 保存并退出
 :r [filename] 将filename文件内容加到光标所在行后面
 :n1,n2 w [newfilename] 将n1到n2行数数据（从1计数）另存为newfilename文件
 :! command 暂时离开vi到命令行模式下执行command的显示结果
+
+其他命令：
+u   撤销上一步的操作
+dd 删除整行
 ```
 
 命令模式 <------------>一般模式<------------->编辑模式
