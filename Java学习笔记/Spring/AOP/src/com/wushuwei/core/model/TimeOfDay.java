@@ -1,9 +1,6 @@
 package com.wushuwei.core.model;
 
-import java.time.DayOfWeek;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Objects;
 
 /**
  * Created by wushu on 2017/10/23.
@@ -28,9 +25,15 @@ public class TimeOfDay {
         this.second = Calendar.getInstance().get(Calendar.SECOND);
     }
 
+    /**
+     * 输出格式 00:00:00
+     * @return
+     */
     @Override
     public String toString() {
-        return hour + ":" + minute + ":" + second;
+        return (hour < 10 ? "0" : "") + hour
+                + ":" + (minute < 10 ? "0" : "") + minute
+                + ":" + (second < 10 ? "0" : "") + second;
     }
 
     /**
@@ -62,13 +65,28 @@ public class TimeOfDay {
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof TimeOfDay) {
-            TimeOfDay timeOfDay = (TimeOfDay) object;
-            return this.hour == timeOfDay.getHour()
-                    && this.minute == timeOfDay.getMinute()
-                    && this.second == timeOfDay.getSecond();
+        if (object == null) {
+            return false;
         }
-        return false;
+        if (this == object) {
+            return true;
+        }
+        if (this.getClass() != object.getClass()) {
+            return false;
+        }
+        TimeOfDay timeOfDay = (TimeOfDay) object;
+        return this.hour == timeOfDay.getHour()
+                && this.minute == timeOfDay.getMinute()
+                && this.second == timeOfDay.getSecond();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = hash * 31 + hour;
+        hash = hash * 31 + minute;
+        hash = hash * 31 + second;
+        return hash;
     }
 
     public int getHour() {
@@ -96,12 +114,25 @@ public class TimeOfDay {
     }
 
     public static void main(String[] args) {
+//        TimeOfDay timeOfDay = new TimeOfDay();
+//        System.out.println(timeOfDay.getHour() + ":" + timeOfDay.getMinute() + ":" + timeOfDay.getSecond());
+//        TimeOfDay time2 = new TimeOfDay(10, 12, 13);
+//        TimeOfDay time3 = new TimeOfDay(10, 12, 14);
+//        System.out.println(new TimeOfDay().equals(new TimeOfDay()));
+//        System.out.println(time2.isAfter(time3));
+//        System.out.println(time2.isBefore(time3));
         TimeOfDay timeOfDay = new TimeOfDay();
-        System.out.println(timeOfDay.getHour() + ":" + timeOfDay.getMinute() + ":" + timeOfDay.getSecond());
-        TimeOfDay time2 = new TimeOfDay(10, 12, 13);
-        TimeOfDay time3 = new TimeOfDay(10, 12, 14);
-        System.out.println(new TimeOfDay().equals(new TimeOfDay()));
-        System.out.println(time2.isAfter(time3));
-        System.out.println(time2.isBefore(time3));
+        TimeOfDay myTimeOfDay = new TimeOfDay(timeOfDay.getHour(), timeOfDay.getMinute(), timeOfDay.getSecond());
+        System.out.println(timeOfDay.equals(timeOfDay));
+        System.out.println(timeOfDay.equals("a"));
+
+        //hash code
+        System.out.println("a".hashCode());
+        System.out.println("a".hashCode());
+
+        System.out.println(new Integer(300).hashCode());
+
+        System.out.println(timeOfDay + " hash code : " + timeOfDay.hashCode());
+        System.out.println(myTimeOfDay + " hash code : " + myTimeOfDay.hashCode());
     }
 }
