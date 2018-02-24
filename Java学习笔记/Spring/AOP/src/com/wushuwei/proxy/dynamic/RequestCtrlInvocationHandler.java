@@ -44,15 +44,17 @@ public class RequestCtrlInvocationHandler implements InvocationHandler{
     }
 
     public static void main(String[] args) {
-        ISubject subject = new SubjectImpl();
-        ISubject subjectProxy = (ISubject) Proxy.newProxyInstance(subject.getClass().getClassLoader(),
-                subject.getClass().getInterfaces()
-                , new RequestCtrlInvocationHandler(subject));
-        System.out.println(subjectProxy.request());
+//        ISubject subject = new SubjectImpl();
+//        ISubject subjectProxy = (ISubject) Proxy.newProxyInstance(subject.getClass().getClassLoader(),
+//                subject.getClass().getInterfaces()
+//                , new RequestCtrlInvocationHandler(subject));
+//        System.out.println(subjectProxy.request());
+//
+//        IRequestable requestable = new RequestableImpl();
+//        IRequestable requestableProxy = (IRequestable) Proxy.newProxyInstance(requestable.getClass().getClassLoader(),
+//                requestable.getClass().getInterfaces(), new RequestCtrlInvocationHandler(requestable));
+//        requestableProxy.request();
+        System.out.println("Hello world");
 
-        IRequestable requestable = new RequestableImpl();
-        IRequestable requestableProxy = (IRequestable) Proxy.newProxyInstance(requestable.getClass().getClassLoader(),
-                requestable.getClass().getInterfaces(), new RequestCtrlInvocationHandler(requestable));
-        requestableProxy.request();
     }
 }

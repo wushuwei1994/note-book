@@ -1,5 +1,7 @@
 package com.java.effective.method;
 
+import com.java.effective.common.BoxedPrimitiveDemo;
+
 import java.math.BigInteger;
 
 /**
