@@ -1,7 +1,7 @@
-package chapter01.duck;
+package chapter01_strategy_pattern.duck;
 
-import chapter01.behavior.FlyBehavior;
-import chapter01.behavior.QuackBehavior;
+import chapter01_strategy_pattern.behavior.FlyBehavior;
+import chapter01_strategy_pattern.behavior.QuackBehavior;
 
 /**
  * 鸭子超类

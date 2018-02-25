@@ -1,8 +1,8 @@
-package chapter01.duck.impl;
+package chapter01_strategy_pattern.duck.impl;
 
-import chapter01.behavior.impl.FlyNoWay;
-import chapter01.behavior.impl.MuteQuack;
-import chapter01.duck.Duck;
+import chapter01_strategy_pattern.behavior.impl.FlyNoWay;
+import chapter01_strategy_pattern.behavior.impl.MuteQuack;
+import chapter01_strategy_pattern.duck.Duck;
 
 /**
  * 诱饵鸭，不会飞不会叫

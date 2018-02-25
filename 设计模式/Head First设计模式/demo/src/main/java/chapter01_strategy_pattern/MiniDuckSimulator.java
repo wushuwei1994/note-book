@@ -1,8 +1,8 @@
-package chapter01;
+package chapter01_strategy_pattern;
 
-import chapter01.behavior.impl.FlyRocketPowered;
-import chapter01.duck.Duck;
-import chapter01.duck.impl.MallardDuck;
+import chapter01_strategy_pattern.behavior.impl.FlyRocketPowered;
+import chapter01_strategy_pattern.duck.Duck;
+import chapter01_strategy_pattern.duck.impl.MallardDuck;
 
 /**
  * Created by 吴蜀威 on 2018/2/19.

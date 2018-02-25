@@ -1,4 +1,4 @@
-package chapter01.behavior;
+package chapter01_strategy_pattern.behavior;
 
 /**
  * “叫”行为

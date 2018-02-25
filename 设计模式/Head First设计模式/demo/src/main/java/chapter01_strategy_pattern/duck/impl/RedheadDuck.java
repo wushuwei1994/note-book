@@ -1,8 +1,8 @@
-package chapter01.duck.impl;
+package chapter01_strategy_pattern.duck.impl;
 
-import chapter01.behavior.impl.FlyWithWings;
-import chapter01.behavior.impl.Quack;
-import chapter01.duck.Duck;
+import chapter01_strategy_pattern.behavior.impl.FlyWithWings;
+import chapter01_strategy_pattern.behavior.impl.Quack;
+import chapter01_strategy_pattern.duck.Duck;
 
 /**
  * 红头鸭，实现"飞"、"叫"接口

@@ -1,8 +1,8 @@
-package chapter01.duck.impl;
+package chapter01_strategy_pattern.duck.impl;
 
-import chapter01.behavior.impl.FlyNoWay;
-import chapter01.behavior.impl.Squeak;
-import chapter01.duck.Duck;
+import chapter01_strategy_pattern.behavior.impl.FlyNoWay;
+import chapter01_strategy_pattern.behavior.impl.Squeak;
+import chapter01_strategy_pattern.duck.Duck;
 
 /**
  * 橡胶鸭，不具备飞的功能，只实现"叫"接口
