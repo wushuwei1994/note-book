@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>介绍</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script type="text/javascript" src="../js/vue.js"></script>
+</head>
+</head>
+<body>
+	<!-- 声明式渲染，响应式 -->
+	<div id="app">
+		{{ message }}
+	</div>
+	<div id="app-2">
+		<span v-bind:title="message">
+			鼠标悬停几秒钟查看此处动态绑定的提示信息！
+		</span>
+	</div>
+	<!-- 条件与循环 -->
+	<div id="app-3">
+		<p v-if="seen">现在你看到我了</p>
+	</div>
+	<div id="app-4">
+		<ol>
+			<li v-for="todo in todos">
+				{{ todo.text }}
+			</li>
+		</ol>
+	</div>
+	<!-- 处理用户输入 -->
+	<!-- 添加一个事件监听器 -->
+	<div id="app-5">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">逆转消息</button>
+	</div>
+
+	<div id="app-6">
+		<p>{{ message }}</p>
+		<input type="text" v-model="message">
+	</div>
+
+	<!-- 组件化应用构建 -->
+	<div id="app-7">
+		<ol>
+			<!-- 创建一个 todo-item 组件的实例 -->
+  			<todo-item 
+  		      v-for="item in groceryList"
+  		      v-bind:todo="item"
+  		      v-bind:key="item.id"
+  			></todo-item>
+		</ol>
+	</div>
+
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
