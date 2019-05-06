@@ -26,6 +26,9 @@
 	参数：
 	-d 删除分支
 	-D 强制删除分支
+	-r 查看远程分支
+
+
 #### git branch branchName 创建branchName分支
 
 #### git branch --set-upstream-to=origin/<branch> dev 设置本地分支与远程分支的链接
