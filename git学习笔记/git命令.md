@@ -9,9 +9,21 @@
     -A表示添加所有内容， 
     . 表示添加新文件和编辑过的文件不包括删除的文件; 
     -u 表示添加编辑或者删除的文件，不包括新添加的文件
-#### git rm -cached 移除缓存（已跟踪变为未跟踪）
+#### git rm 移除文件
 
-#### git rm file 从资源库删除文件
+```
+git rm file 可以把已加入到暂存且之后删除的文件（先git add再delete的文件）移除
+git rm -f 直接删除（删除文件并移除跟踪）已加入到暂存的文件
+git rm --cached 把文件从Git仓库中删除（亦即从暂存区域移除），但仍保留在当前工作目录。（需要再一次手动提交此次删除操作），针对误提交的情况。
+```
+
+> 对已跟踪提交的文件，若想移除跟踪可参考：<https://blog.csdn.net/timestone/article/details/78933092>
+
+####  git mv 移动文件(重命名)
+```
+git mv file1 file2 把file1名字重名为file2,git status 会显示rename
+PS:如果在文件系统直接重命名，则会显示已删除文件且新建一个文件。
+```
 
 #### git commit 提交 
 	参数：
@@ -20,7 +32,15 @@
 	-a 把已跟踪且已修改过的文件加到暂存再提交（跳过加到暂存步骤）
 #### git log 查看所有产生的commit记录
 
-`git log --graph`命令可以看到分支合并图。
+```
+-2 -数字，表示查看最近2次提交记录
+-p 查看每次记录详情 
+//示例：
+git log -2 -p //查看最近2次详细提交记录
+--stat 在每次提交的下面列出所有被修改过的文件、有多少文件被修改了以及被修改过
+的文件的哪些行被移除或是添加了
+--graph 查看到分支合并图。
+```
 
 #### git branch 查看当前分支情况
 	参数：
@@ -32,6 +52,8 @@
 #### git branch branchName 创建branchName分支
 
 #### git branch --set-upstream-to=origin/<branch> dev 设置本地分支与远程分支的链接
+
+#### git push --set-upstream origin prod 本地分支推送到远程分支（远程未创建分支）
 
 #### git checkout branchName 切换到branchName（tag）分支
 #### git checkout -b newBranch 创建newBranch分支并切换新分支
@@ -105,7 +127,7 @@ $ git config --global alias.st status  //配置别名
 
 ```
 [bob@iZwz9b0bqrkbhq5r8nvaojZ learngit]$ git reset --hard HEAD^
-HEAD is now at c6b789e add distributed
+HEAD is now at c6b789e add distributedh
 ```
 
 同时，git也可以回到未来的版本（版本回退之前的版本）。如果命令行窗口没有关闭，可以根据commit id （可以不完整）回到未来的版本。
@@ -167,3 +189,7 @@ ps:若在本地仓库有多个分支，在其中一个分支做出修改而未co
 
  Staged -(Commit) > Unmodified
 
+
+```
+
+```
