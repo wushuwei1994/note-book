@@ -18,6 +18,15 @@
 		<p>
 			{{now}}
 		</p>
+		<div>{{ fullName }}</div>
+		firstName:<input type="text" v-model="firstName">
+		lastName:<input type="text" v-model="lastName">
+		fullName:<input type="text" v-model="fullName">
+<!-- 		<div>{{ firstName + ' ' + lastName}}</div> -->
+		<p>
+			计算属性 vs 侦听属性:<br>
+			Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：侦听属性。当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch——特别是如果你之前使用过 AngularJS。然而，通常更好的做法是使用计算属性而不是命令式的 watch 回调。
+		</p>
 	</div>
 	<script type="text/javascript" src="index.js"></script>
 </body>
