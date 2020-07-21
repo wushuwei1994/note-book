@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carrywei.svecms.mapper.CardVoucherDAO">
+  <resultMap id="BaseResultMap" type="com.carrywei.svecms.entity.po.CardVoucher">
+    <id column="cardId" jdbcType="INTEGER" property="cardId" />
+    <result column="cardDetailId" jdbcType="INTEGER" property="cardDetailId" />
+    <result column="cardPic" jdbcType="VARCHAR" property="cardPic" />
+    <result column="cardName" jdbcType="VARCHAR" property="cardName" />
+    <result column="shopId" jdbcType="INTEGER" property="shopId" />
+    <result column="cardStyle" jdbcType="TINYINT" property="cardStyle" />
+    <result column="createType" jdbcType="TINYINT" property="createType" />
+    <result column="cardType" jdbcType="VARCHAR" property="cardType" />
+    <result column="settlementType" jdbcType="TINYINT" property="settlementType" />
+    <result column="applyShopState" jdbcType="TINYINT" property="applyShopState" />
+    <result column="suId" jdbcType="INTEGER" property="suId" />
+    <result column="upSuId" jdbcType="INTEGER" property="upSuId" />
+    <result column="changeState" jdbcType="TINYINT" property="changeState" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+    <result column="shopExamState" jdbcType="BIT" property="shopExamState" />
+    <result column="ctime" jdbcType="BIGINT" property="ctime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cardId, cardDetailId, cardPic, cardName, shopId, cardStyle, createType, cardType, 
+    settlementType, applyShopState, suId, upSuId, changeState, `state`, shopExamState, 
+    ctime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from card_voucher
+    where cardId = #{cardId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from card_voucher
+    where cardId = #{cardId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.carrywei.svecms.entity.po.CardVoucher">
+    insert into card_voucher (cardId, cardDetailId, cardPic, 
+      cardName, shopId, cardStyle, 
+      createType, cardType, settlementType, 
+      applyShopState, suId, upSuId, 
+      changeState, `state`, shopExamState, 
+      ctime)
+    values (#{cardId,jdbcType=INTEGER}, #{cardDetailId,jdbcType=INTEGER}, #{cardPic,jdbcType=VARCHAR}, 
+      #{cardName,jdbcType=VARCHAR}, #{shopId,jdbcType=INTEGER}, #{cardStyle,jdbcType=TINYINT}, 
+      #{createType,jdbcType=TINYINT}, #{cardType,jdbcType=VARCHAR}, #{settlementType,jdbcType=TINYINT}, 
+      #{applyShopState,jdbcType=TINYINT}, #{suId,jdbcType=INTEGER}, #{upSuId,jdbcType=INTEGER}, 
+      #{changeState,jdbcType=TINYINT}, #{state,jdbcType=TINYINT}, #{shopExamState,jdbcType=BIT}, 
+      #{ctime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.carrywei.svecms.entity.po.CardVoucher">
+    insert into card_voucher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        cardId,
+      </if>
+      <if test="cardDetailId != null">
+        cardDetailId,
+      </if>
+      <if test="cardPic != null">
+        cardPic,
+      </if>
+      <if test="cardName != null">
+        cardName,
+      </if>
+      <if test="shopId != null">
+        shopId,
+      </if>
+      <if test="cardStyle != null">
+        cardStyle,
+      </if>
+      <if test="createType != null">
+        createType,
+      </if>
+      <if test="cardType != null">
+        cardType,
+      </if>
+      <if test="settlementType != null">
+        settlementType,
+      </if>
+      <if test="applyShopState != null">
+        applyShopState,
+      </if>
+      <if test="suId != null">
+        suId,
+      </if>
+      <if test="upSuId != null">
+        upSuId,
+      </if>
+      <if test="changeState != null">
+        changeState,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="shopExamState != null">
+        shopExamState,
+      </if>
+      <if test="ctime != null">
+        ctime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        #{cardId,jdbcType=INTEGER},
+      </if>
+      <if test="cardDetailId != null">
+        #{cardDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="cardPic != null">
+        #{cardPic,jdbcType=VARCHAR},
+      </if>
+      <if test="cardName != null">
+        #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="cardStyle != null">
+        #{cardStyle,jdbcType=TINYINT},
+      </if>
+      <if test="createType != null">
+        #{createType,jdbcType=TINYINT},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementType != null">
+        #{settlementType,jdbcType=TINYINT},
+      </if>
+      <if test="applyShopState != null">
+        #{applyShopState,jdbcType=TINYINT},
+      </if>
+      <if test="suId != null">
+        #{suId,jdbcType=INTEGER},
+      </if>
+      <if test="upSuId != null">
+        #{upSuId,jdbcType=INTEGER},
+      </if>
+      <if test="changeState != null">
+        #{changeState,jdbcType=TINYINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="shopExamState != null">
+        #{shopExamState,jdbcType=BIT},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carrywei.svecms.entity.po.CardVoucher">
+    update card_voucher
+    <set>
+      <if test="cardDetailId != null">
+        cardDetailId = #{cardDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="cardPic != null">
+        cardPic = #{cardPic,jdbcType=VARCHAR},
+      </if>
+      <if test="cardName != null">
+        cardName = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        shopId = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="cardStyle != null">
+        cardStyle = #{cardStyle,jdbcType=TINYINT},
+      </if>
+      <if test="createType != null">
+        createType = #{createType,jdbcType=TINYINT},
+      </if>
+      <if test="cardType != null">
+        cardType = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementType != null">
+        settlementType = #{settlementType,jdbcType=TINYINT},
+      </if>
+      <if test="applyShopState != null">
+        applyShopState = #{applyShopState,jdbcType=TINYINT},
+      </if>
+      <if test="suId != null">
+        suId = #{suId,jdbcType=INTEGER},
+      </if>
+      <if test="upSuId != null">
+        upSuId = #{upSuId,jdbcType=INTEGER},
+      </if>
+      <if test="changeState != null">
+        changeState = #{changeState,jdbcType=TINYINT},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="shopExamState != null">
+        shopExamState = #{shopExamState,jdbcType=BIT},
+      </if>
+      <if test="ctime != null">
+        ctime = #{ctime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where cardId = #{cardId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carrywei.svecms.entity.po.CardVoucher">
+    update card_voucher
+    set cardDetailId = #{cardDetailId,jdbcType=INTEGER},
+      cardPic = #{cardPic,jdbcType=VARCHAR},
+      cardName = #{cardName,jdbcType=VARCHAR},
+      shopId = #{shopId,jdbcType=INTEGER},
+      cardStyle = #{cardStyle,jdbcType=TINYINT},
+      createType = #{createType,jdbcType=TINYINT},
+      cardType = #{cardType,jdbcType=VARCHAR},
+      settlementType = #{settlementType,jdbcType=TINYINT},
+      applyShopState = #{applyShopState,jdbcType=TINYINT},
+      suId = #{suId,jdbcType=INTEGER},
+      upSuId = #{upSuId,jdbcType=INTEGER},
+      changeState = #{changeState,jdbcType=TINYINT},
+      `state` = #{state,jdbcType=TINYINT},
+      shopExamState = #{shopExamState,jdbcType=BIT},
+      ctime = #{ctime,jdbcType=BIGINT}
+    where cardId = #{cardId,jdbcType=INTEGER}
+  </update>
+</mapper>

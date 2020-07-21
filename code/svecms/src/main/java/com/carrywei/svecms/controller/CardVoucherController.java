@@ -1,0 +1,17 @@
+package com.carrywei.svecms.controller;
+
+import com.carrywei.svecms.entity.vo.CardVoucherVO;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("card-voucher")
+public class CardVoucherController {
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String createCardVoucher(@RequestBody  CardVoucherVO cardVoucherVO) {
+        return "success";
+    }
+}

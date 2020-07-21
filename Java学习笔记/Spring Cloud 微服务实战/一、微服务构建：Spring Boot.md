@@ -90,12 +90,54 @@ public class HelloController {
 * 利用 spring-boot-maven-plugin 插件，执行 `mvn spring-boot:run` 命令 
 * 在服务器上部署运行，先使用 `mvn install` 命令打包成 jar 包，再通过 `java -jar xxx.jar` 命令来启动应用
 
+##### 参数校验（标准JSR-303规范）
+* 在要校验的字段上添加 @NotEmpty等注解。更多注解参考：[JSR303定义的校验类型](JSR303定义的校验类型.md)
+```
+@Data
+@ApiModel("节点枚举")
+public class OperateEnumVo {
+    private ProjectEnumVo projectEnumVo; // 项目枚举
+    private MenuBarsEnumVo menuBarsEnumVo; // 菜单枚举
+    private String key; // 节点关键字
+    private String name; // 节点名称
+    @ApiModelProperty("节点枚举名")
+    @NotEmpty(message = "节点名称不能为空")
+    private String operateEnumName;
+}
+```
+*  在需要校验的参数实体前添加@Valid或@Validated注解
+```
+    @ApiOperation("新增节点枚举接口")
+    @PostMapping("/operateEnum")
+    public ResponseVo addOperateEnum(@RequestBody @Validated OperateEnumVo operateEnumVo) {
+        return null;
+    }
+```
 
-##### 编写单元测试
 
-略
+#### 编写单元测试
 
+1. 引入依赖：spring-boot-starter-web 
 
+2. 在test文件，创建test类。在Idea 可以通过 「Ctrl + Shift + T」快捷键，快速创建单元测试类。也可通过操作栏的Navigate -> Test窗口
+
+   ```
+   //ShellServiceTest.java
+   @RunWith(SpringRunner.class)
+   @SpringBootTest
+   public class ShellServiceTest {
+   
+       @Autowired
+       private IShellService shellService;
+   
+       @Test
+       public void mvnDeploy() {
+           shellService.mvnDeploy("/D:/code/java/power-tool");
+       }
+   }
+   ```
+
+3. 直接运行@Test方法
 
 ### 配置详解
 
@@ -118,7 +160,7 @@ management.endpoints.web.exposure.include=*
 
 #### 自定义参数
 
-可以在配置文件自定义需要的参数，代码中可以通过 @Value注解来加载这些自定义参数。
+可以在配置文件自定义需要的参数，代码中可以通过 @Value注解来加载这些自定义参数。自定义参数名避免与系统变量相同，否则加载的参数为系统变量。
 
 ```
 @Component
@@ -141,6 +183,38 @@ public class Application {
     }
 }
 ```
+
+##### 引入新的配置文件
+
+resources下的配置文件 gitconfig.properties
+
+```
+#gitconfig.properties
+git.localRepoPath=/D:/code/java/frameworkdemo
+git.localRepogitConfig=/D:/code/java/frameworkdemo/.git
+git.remoteRepoUri=git@github.com:xxx/project.git
+git.initLocalCodeDir=/D:/code/java/
+```
+
+通过 @PropertySource @ConfigurationProperties 注解加载配置：
+
+```
+@Component
+@PropertySource(value = {"classpath:gitconfig.properties"})
+@ConfigurationProperties(prefix = "git")
+@Data
+public class GitConfig {
+    private String localRepoPath;
+    private String localRepogitConfig;
+    private String remoteRepoUri;
+    private String initLocalCodeDir;
+    private String branchName;
+    private String username;
+    private String password;
+}
+```
+
+其中ConfigurationProperties的prefix必填
 
 #### 参数引用
 
