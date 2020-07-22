@@ -352,24 +352,24 @@
             System.out.println(method.invoke(e2)); // Bob
     ```
 
-    12. 常用函数式接口
-    
-        | 函数式接口               | 参数类型 | 返回类型 | 抽象方法名 | 描述                         | 其他方法                     |
-        | ------------------------ | -------- | -------- | ---------- | ---------------------------- | ---------------------------- |
-        | Runnable                 | 无       | void     | run        | 作为无参数或返回值的动作运行 |                              |
-        | Supplier < T >           | 无       | T        | get        | 提供一个 T 类型的值          |                              |
-        | Consumer < T >           | T        | void     | accept     | 处理 一个 T 类铟的值         | andThen                      |
-        | BiConsumer < T , U >     | T, U     | void     | accept     | 处理 T 和 U 类型的值         | andThen                      |
-        | Function < T , R >       | T        | R        | appley     | 有一个 T 类 型参数的函数     | compose , andThen , identity |
-        | BiFunction < T , U , R > | T, U     | R        | appley     | 有 T 和 U 类型参数的函数     | andThen                      |
-        | UnaryOperator < T >      | T        | T        | appley     | 类型 T 上的一元操作符        | compose , andThen , identity |
-        | BinaryOperator < T >     | T, T     | T        | appley     | 类型 T 上的二元操作符        | andThen , max By , minBy     |
-        | Predicate < T >          | T        | boolean  | test       | 布尔值函数                   | and , or , negate , isEqual  |
-        | BiPredicate < T , U >    | T,U      | boolean  | test       | 有两个参数的布尔值函数       | and , or , negate            |
-    
-    
-    
-    
-    
-    
+##### 接口、lambda表达式和内部类
+
+1. 常用函数式接口
+
+| 参数类型 | 返回类型 | 抽象方法名 | 描述                         | 其他方法                     | 函数式接口               |
+| -------- | -------- | ---------- | ---------------------------- | ---------------------------- | ------------------------ |
+| 无       | void     | run        | 作为无参数或返回值的动作运行 |                              | Runnable                 |
+| 无       | T        | get        | 提供一个 T 类型的值          |                              | Supplier < T >           |
+| T        | void     | accept     | 处理 一个 T 类铟的值         | andThen                      | Consumer < T >           |
+| T, U     | void     | accept     | 处理 T 和 U 类型的值         | andThen                      | BiConsumer < T , U >     |
+| T        | R        | appley     | 有一个 T 类 型参数的函数     | compose , andThen , identity | Function < T , R >       |
+| T, U     | R        | appley     | 有 T 和 U 类型参数的函数     | andThen                      | BiFunction < T , U , R > |
+| T        | T        | appley     | 类型 T 上的一元操作符        | compose , andThen , identity | UnaryOperator < T >      |
+| T, T     | T        | appley     | 类型 T 上的二元操作符        | andThen , max By , minBy     | BinaryOperator < T >     |
+| T        | boolean  | test       | 布尔值函数                   | and , or , negate , isEqual  | Predicate < T >          |
+| T,U      | boolean  | test       | 有两个参数的布尔值函数       | and , or , negate            | BiPredicate < T , U >    |
+
+2. 内部类既可以访问自身的数据域 ， 也可以访问创建它的外围类对象的数据域 (包括私有域)。 内部类的对象总有一个隐式引用， 它指向了创建它的外部类对象。
+3. 只有内部类可以是私有类 ， 而常规类只可以具有包可见性 ， 或公有可见性 。
+
 
