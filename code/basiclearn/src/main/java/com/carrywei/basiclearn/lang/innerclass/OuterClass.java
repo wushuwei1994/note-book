@@ -8,18 +8,27 @@ public class OuterClass {
     private int num = 5;
 
     public void test() {
-        new InnerClass().method();
+        this.new InnerClass().method();
     }
 
-    class InnerClass{
-        private int num1 = 6;
-
+    public class InnerClass{
+        private int num = 6;
+        private final static int num2 = 5;
         void method(){
-            System.out.println("num =" + num);
+            System.out.println("num = " + OuterClass.this.num);
         }
     }
 
     public static void main(String[] args) {
         new OuterClass().test();
+        OuterClass outerClass = new OuterClass();
+        (new OuterClass()).new InnerClass();
+        outerClass.new InnerClass();
+
+        new OuterClass().new InnerClass();
+
+        new Thread(() -> {
+
+        }).start();
     }
 }
