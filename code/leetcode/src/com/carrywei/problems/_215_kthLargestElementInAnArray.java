@@ -1,5 +1,7 @@
 package com.carrywei.problems;
 
+import java.util.Arrays;
+
 /**
  * 215. 数组中的第K个最大元素
  * 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
@@ -93,16 +95,54 @@ public class _215_kthLargestElementInAnArray {
         return j + 1;
     }
 
-    private void swap(int[] nums, int i, int j) {
+    /**
+     * 分割数组为两部分
+     * @param nums
+     * @param left
+     * @param right
+     */
+    public static int partitionAsc(int[] nums, int left, int right) {
+        int pivot = nums[left];
+        int i = left;
+        int j = right + 1;
+        // 保证数据[left...i] < pivot, [j...right] >= pivot
+        while (i < j - 1) {
+            if (nums[i + 1] < pivot) {
+                i++;
+            } else {
+                swap(nums, i + 1, j - 1);
+                j--;
+            }
+        }
+        swap(nums, left, i);
+        return i;
+    }
+
+    public static void swap(int[] nums, int i, int j) {
         int temp = nums[j];
         nums[j] = nums[i];
         nums[i] = temp;
     }
 
+
+    public static void quickSort(int[] nums, int left, int right) {
+        if (left < right) {
+            int pivot = partitionAsc(nums, left, right);
+            quickSort(nums, left, pivot - 1);
+            quickSort(nums, pivot + 1, right);
+        }
+    }
+
     public static void main(String[] args) {
-        int[] testData = {3, 2, 3, 1, 2, 4, 5, 5, 6};
-        int k = 9;
-        System.out.println(new _215_kthLargestElementInAnArray().findKthLargest(testData, k));
+        int[] testData = {4, 2, 3, 7, 2, 1, 5, 5, 6};
+//        int k = 9;
+//        System.out.println(new _215_kthLargestElementInAnArray().findKthLargest(testData, k));
+
+//        partitionAsc(testData, 0, testData.length - 1);
+        quickSort(testData, 0, testData.length - 1);
+        System.out.println(Arrays.toString(testData));
+
+
     }
 
 }
