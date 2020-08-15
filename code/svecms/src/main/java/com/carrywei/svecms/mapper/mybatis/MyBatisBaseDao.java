@@ -1,4 +1,4 @@
-package com.carrywei.svecms.mapper;
+package com.carrywei.svecms.mapper.mybatis;
 
 import java.io.Serializable;
 

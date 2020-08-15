@@ -9,6 +9,9 @@ public class Primitive {
 
     }
     public static void main(String[] args) {
+
+        System.out.println(7 << 1);
+
         // 整形基本类型
         int intNum = 1_1;
 
@@ -125,6 +128,8 @@ public class Primitive {
         j = 6;
         k = j++  +j   ; //  6 + 7 = 13
         System.out.println(k); //13
+
+
 
     }
 }

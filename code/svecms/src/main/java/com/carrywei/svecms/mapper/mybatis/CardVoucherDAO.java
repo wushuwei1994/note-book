@@ -1,4 +1,4 @@
-package com.carrywei.svecms.mapper;
+package com.carrywei.svecms.mapper.mybatis;
 
 import com.carrywei.svecms.entity.po.CardVoucher;
 import org.apache.ibatis.annotations.Mapper;

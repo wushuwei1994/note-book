@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.carrywei.svecms.mapper.CardVoucherDAO">
+<mapper namespace="com.carrywei.svecms.mapper.mybatis.CardVoucherDAO">
   <resultMap id="BaseResultMap" type="com.carrywei.svecms.entity.po.CardVoucher">
     <id column="cardId" jdbcType="INTEGER" property="cardId" />
     <result column="cardDetailId" jdbcType="INTEGER" property="cardDetailId" />

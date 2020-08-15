@@ -9,6 +9,26 @@ import java.util.*;
 public class CollectionDemo {
     public static void main(String[] args) {
         List<String> arrayList = new ArrayList<>();
+
+        arrayList.add("aaa");
+        arrayList.add("bbb");
+
+        arrayList.remove("aaa");
+
+//        for (String a : arrayList) {
+//            System.out.println(a);
+//            arrayList.add("1111");
+//        }
+
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("abc");
+
+        // hashSet 可以添加一个为null的元素
+        hashSet.add(null);
+
+        LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
+        linkedHashSet.add("abc");
+
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add("c");
         linkedList.add("b");
@@ -24,6 +44,9 @@ public class CollectionDemo {
         for (String a : treeSet) {
             System.out.println(a);
         }
+        // treeSet不能添加为null的元素，将抛出空指针异常
+        treeSet.add(null);
+
 
 
         // 优先队列
