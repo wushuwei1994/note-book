@@ -8,6 +8,15 @@ import java.util.*;
  */
 public class CollectionDemo {
     public static void main(String[] args) {
+
+        if (true) {
+            System.out.println("true1");
+        } else if (true) {
+            System.out.println("true2");
+        } else {
+            System.out.println("true3");
+        }
+
         List<String> arrayList = new ArrayList<>();
 
         arrayList.add("aaa");
@@ -45,7 +54,7 @@ public class CollectionDemo {
             System.out.println(a);
         }
         // treeSet不能添加为null的元素，将抛出空指针异常
-        treeSet.add(null);
+//        treeSet.add(null);
 
 
 
@@ -98,5 +107,9 @@ public class CollectionDemo {
         map.forEach((key, value) ->{
             System.out.println("key = " + key + ", value = " + value);
         });
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("abc", "hello");
+        hashMap.remove("abc");
     }
 }

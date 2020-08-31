@@ -2,6 +2,7 @@ package com.carrywei.svecms.mapper.plus;
 
 import com.carrywei.svecms.entity.po.CardVoucher;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.util.Maps;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +25,7 @@ public class CardVoucherMapperTest {
         System.out.println(("----- selectAll method test ------"));
         List<CardVoucher> cardVoucherList = cardVoucherMapper.selectList(null);
         cardVoucherList.forEach(System.out::println);
+        Maps.newHashMap()
     }
 
 }

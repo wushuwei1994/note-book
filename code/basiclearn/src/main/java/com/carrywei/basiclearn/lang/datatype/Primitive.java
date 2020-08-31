@@ -10,7 +10,28 @@ public class Primitive {
     }
     public static void main(String[] args) {
 
+        System.out.println(7<<1); // 14
+        System.out.println(7<<2); // 28
+
+        System.out.println(7>>1); // 3
+        System.out.println(7>>2); // 1
+
+        System.out.println("Integer.MAX_VALUE = " + Integer.MAX_VALUE);
+
+        System.out.println("bit:Integer.MAX_VALUE = " + Integer.toBinaryString(Integer.MAX_VALUE));
+
+        System.out.println("bit:-1 = " + Integer.toBinaryString(-1));
+
+        System.out.println("Integer.MAX_VALUE + 1 = " + (Integer.MAX_VALUE + 1));
+
+        System.out.println("bit:Integer.MIN_VALUE = " + Integer.toBinaryString(Integer.MIN_VALUE));
+
+
         System.out.println(7 << 1);
+
+        System.out.println(0b1101&0b11);
+
+        System.out.println(~0b01);
 
         // 整形基本类型
         int intNum = 1_1;
