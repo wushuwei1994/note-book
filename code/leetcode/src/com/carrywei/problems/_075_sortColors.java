@@ -69,9 +69,39 @@ public class _075_sortColors {
 
     }
 
+    public void test(int[] nums) {
+        int i = -1;
+        int j = nums.length;
+        int k = 0;
+        while (k < j) {
+            if (nums[k] == 2) {
+                nums[k] = nums[j - 1];
+                nums[j - 1] = 2;
+                j--;
+            } else if (nums[k] == 1) {
+                k++;
+            }else {
+                i++;
+                nums[k] = nums[i];
+                nums[i] = 0;
+                k++;
+            }
+        }
+    }
+
+    /**
+     * 交换数组下标为i,j的数
+     * @param nums
+     */
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[j];
+        nums[j] = nums[i];
+        nums[i] = temp;
+    }
+
     public static void main(String[] args) {
-        int[] testData = {3, 2,0,2,1,1,0, 3};
-        new _075_sortColors().sortColors(testData);
+        int[] testData = {0, 2,0,2,1,1,0, 1};
+        new _075_sortColors().test(testData);
         System.out.println(Arrays.toString(testData));
     }
 }
