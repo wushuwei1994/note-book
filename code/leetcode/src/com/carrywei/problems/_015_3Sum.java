@@ -25,7 +25,7 @@ import java.util.*;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class _015_3Sum {
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum1(int[] nums) {
         /**
          * 解题思路
          * 三元组元素可能性:
@@ -115,7 +115,71 @@ public class _015_3Sum {
         return result;
     }
 
+    /**
+     * 将数组数据快速排序
+     * @param nums
+     * @param left
+     * @param left
+     * @return
+     */
+    private void quickSort(int[] nums, int left, int right) {
+        if (right <= left) {
+            return ;
+        }
+        int h = right;
+        int pivot = left;
+        for (int i = left + 1; i <= h;) {
+            if (nums[i] > nums[pivot]) {
+                int temp = nums[h];
+                nums[h] = nums[i];
+                nums[i] = temp;
+                h--;
+            } else {
+                int temp = nums[i];
+                nums[i] = nums[pivot];
+                nums[pivot] = temp;
+                pivot = i;
+                i++;
+            }
+        }
+        // 左边快速排序
+        quickSort(nums, left, pivot-1);
+        // 右边快速排序
+        quickSort(nums, pivot + 1, right);
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        // 快速排序
+        quickSort(nums, 0, nums.length - 1);
+        List<List<Integer>> result = new ArrayList<>();
+        Set<Integer> firstSet = new HashSet<>();
+        for (int i = 0; i < nums.length - 2; i++) {
+            // 如果已遍历过，则不再求和
+            if (!firstSet.contains(nums[i])) {
+                firstSet.add(nums[i]);
+                // 求剩下两个数和等于 0 - nums[i]
+                Integer target = 0 - nums[i];
+                Set<Integer> secondSet = new HashSet<>();
+                Map<Integer, Integer> targetMap = new HashMap<>();
+                for (int j = i + 1; j < nums.length; j++) {
+                    // 找到满足和为0，且之前未出现过的结果
+                    if (targetMap.get(nums[j]) != null && !secondSet.contains(nums[j])) {
+                        List<Integer> threeSum = Arrays.asList(nums[i], nums[j], target - nums[j]);
+                        result.add(threeSum);
+                        secondSet.add(nums[j]);
+                        secondSet.add(target - nums[j]);
+                    } else {
+                        targetMap.put(target - nums[j], j);
+                    }
+                }
+            }
+            firstSet.add(nums[i]);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-        new _015_3Sum().threeSum(new int[]{-1,0,1,2,-1,-4});
+        List r = new _015_3Sum().threeSum(new int[]{-1,0,1,2,-1,-4});
+        System.out.println(r);
     }
 }
