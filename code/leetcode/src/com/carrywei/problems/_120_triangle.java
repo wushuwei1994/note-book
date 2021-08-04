@@ -72,6 +72,19 @@ public class _120_triangle {
         return mininumTotal[i][j];
     }
 
+
+    public int minimumTotal1(List<List<Integer>> triangle) {
+        // 记录到达每一层元素的最小路径和
+        int[] minimumRow = new int[triangle.get(triangle.size() - 1).size()+1];
+        for (int i = triangle.size() - 1; i >= 0; i--) {
+            for (int j = 0; j < triangle.get(i).size(); j++) {
+                // 下一层到达上一层的最小路径
+                minimumRow[j] = Math.min(minimumRow[j], minimumRow[j + 1]) + triangle.get(i).get(j);
+            }
+        }
+        return minimumRow[0];
+    }
+
     public static void main(String[] args) {
         int[][] testData = {{2},{3,4},{6,5,7},{4,1,8,3}};
         List<List<Integer>> triangle = new ArrayList<>();
