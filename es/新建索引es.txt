@@ -1,0 +1,170 @@
+{
+  "base-product-spu-info" : {
+    "mappings" : {
+      "properties" : {
+        "akcPrice" : {
+          "type" : "float"
+        },
+        "brandName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "costPrice" : {
+          "type" : "float"
+        },
+        "discount" : {
+          "type" : "float"
+        },
+        "endDate" : {
+          "type" : "long"
+        },
+        "firstCatalog" : {
+          "type" : "long"
+        },
+        "firstCatalogName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "hasContent" : {
+          "type" : "long"
+        },
+        "id" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "isDeleted" : {
+          "type" : "long"
+        },
+        "isRecommend" : {
+          "type" : "long"
+        },
+        "liveId" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "originPrice" : {
+          "type" : "long"
+        },
+        "productSource" : {
+          "type" : "long"
+        },
+        "saleNum" : {
+          "type" : "long"
+        },
+        "salePrice" : {
+          "type" : "float"
+        },
+        "secondCatalog" : {
+          "type" : "long"
+        },
+        "secondCatalogName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "sellOut" : {
+          "type" : "boolean"
+        },
+        "settlementPrice" : {
+          "type" : "float"
+        },
+        "skuNum" : {
+          "type" : "long"
+        },
+        "skuStr" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "sort" : {
+          "type" : "long"
+        },
+        "spuImageUrls" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "spuName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "spuSalePoint" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "spuStatus" : {
+          "type" : "long"
+        },
+        "startDate" : {
+          "type" : "long"
+        },
+        "supplierId" : {
+          "type" : "long"
+        },
+        "supplierName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "thirdCatalog" : {
+          "type" : "long"
+        },
+        "thirdCatalogName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+    }
+  }
+}

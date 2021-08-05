@@ -106,6 +106,14 @@ git push origin :refs/tags/<tagname>可以删除一个远程标签
 	git clone git@github.com:wushuwei1994/hello-world.git //ssh路径格式：git@github.com:username/project_name.git
 
 #### git remote add 添加远程仓库
+
+```
+// 移除旧的远程仓库
+git remote rm origin
+// 添加新的远程仓库
+git remote add origin "新的仓库地址" // 如 git remote add origin shh:aabbcc
+```
+
 #### git remote -v 查看当前项目有哪些远程仓库
 #### git config -l 查看你的Git全局设置信息 
 #### git config --global user.name "wushuwei" 配置全局变量
